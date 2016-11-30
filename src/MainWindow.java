@@ -193,7 +193,7 @@ public class MainWindow extends JFrame implements ActionListener
 	    			m_aobjTestList = GetTestFromXml(objFile.getAbsolutePath());
 	    			
 	    			// Muestra la informacion leida de los test
-	    			PrintInfo();
+	    			PrintInfo();  
 	    		}
 	    	}
 	    }
