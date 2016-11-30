@@ -210,8 +210,7 @@ public class MainWindow extends JFrame implements ActionListener
 		{
 			m_aobjTestList.get(nTest).PrintInfo();
 		}
-		System.out.println("**************************");
-		System.out.println("**************************");
+		System.out.println("**************************");		
 	}
 	 
 }
