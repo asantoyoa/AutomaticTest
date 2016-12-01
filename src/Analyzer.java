@@ -10,6 +10,7 @@
 public class Analyzer
 {
 	AnalyzerWatcher m_objWatcher;
+	String m_strPathDef = "D:\\Java Projects\\AutomaticTestSan\\DirectorytoWatch";
 	
 	public Analyzer()
 	{

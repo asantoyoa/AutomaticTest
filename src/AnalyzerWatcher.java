@@ -1,4 +1,5 @@
 import java.io.IOException;
+
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -18,7 +19,7 @@ import static java.nio.file.StandardWatchEventKinds.ENTRY_MODIFY;
  * @author Andres
  *
  */
-public class AnalyzerWatcher  
+public class AnalyzerWatcher
 {
 	Path 			m_objFolder;	
 	WatchService	m_objWatchService;	// Create a new Watch Service
@@ -69,14 +70,15 @@ public class AnalyzerWatcher
 		{				
 			while(true) 
 			{			
+				//Espera activa a un evento.
 				objKey = m_objWatchService.take();
 						
 				// Dequeueing events
 				objKind = null;
-				for(WatchEvent<?> watchEvent : objKey.pollEvents()) 
+				for(WatchEvent<?> objWatchEvent : objKey.pollEvents()) 
 				{
 					// Get the type of the event
-					objKind = watchEvent.kind();
+					objKind = objWatchEvent.kind();
 					if (OVERFLOW == objKind) 
 					{
 						continue; //loop
@@ -85,8 +87,7 @@ public class AnalyzerWatcher
 					{
 						// A new Path was created 
 						@SuppressWarnings("unchecked")
-						Path objNewPath = ((WatchEvent<Path>) watchEvent).context();
-						// Output
+						Path objNewPath = ((WatchEvent<Path>) objWatchEvent).context();						
 						System.out.println("New path created: " + objNewPath);
 					}
 					// Modificacion
